@@ -14,7 +14,7 @@ export VENDING_USER="us3r"
 export VENDING_PASSWORD="p4ssw0rd"
 ```
 
-####Log level
+#### Log level
 CRITICAL = 50 \
 ERROR = 40 \
 WARNING = 30 \
