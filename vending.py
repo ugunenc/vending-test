@@ -1,6 +1,10 @@
 import os
 import re
 from datetime import datetime as date, time
+from auth import log_level
+import logging
+
+logging.basicConfig(level=log_level(), format='%(asctime)s :: %(levelname)s :: %(message)s')
 
 string_error_message = "Time must be string! Ex: \"Mon: 1200-1400 Tue: 0900-1100 Fri: 0000-2400\" "
 
@@ -23,6 +27,7 @@ class Vending:
             os.environ["VENDING_FREE_TIME"] = time
         except Exception as e:
             print(e)
+            logging.error(string_error_message)
             raise ValueError(string_error_message)
 
     def get_free_time(self):
@@ -30,6 +35,7 @@ class Vending:
 
     def validate_time(self, time):
         if not isinstance(time, str):
+            logging.error(string_error_message)
             raise TypeError(string_error_message)
 
         matches = re.finditer(self._regex, time)
@@ -37,6 +43,7 @@ class Vending:
         if len(matches) > 0:
             return True
         else:
+            logging.error(string_error_message)
             raise ValueError(string_error_message)
 
     def check_free_time(self):
