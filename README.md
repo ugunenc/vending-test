@@ -42,7 +42,7 @@ curl http://127.0.0.1:5000/drink
 Request POST method to 'set_free_time' to set free time range. You can set time range for one or more days
 
 ```bash
-curl -X POST -u us3r:1p4ssw0rd  -H "Content-Type: application/json" \
+curl -X POST -u us3r:p4ssw0rd  -H "Content-Type: application/json" \
      -d '{"free_time": "Fri: 1330-1450"}' \
      http://localhost:5000/set_free_time
 ```
